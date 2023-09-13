@@ -8,6 +8,7 @@
 User.destroy_all
 Profile.destroy_all
 Post.destroy_all
+Comment.destroy_all
 
 User.create([
   { email: "mark@mark.mark",
@@ -105,7 +106,15 @@ Profile.create([
 
 Post.create([
   {
-    author_id: User.find_by(email: "mark@mark.mark").id,
+    author: User.find_by(email: "mark@mark.mark"),
     body: "Welcome to CronBook peeps."
+  }
+])
+
+Comment.create([
+  {
+    author: User.find_by(email: "peter@peter.peter"),
+    post: Post.first,
+    body: "Pumped to be here fellas."
   }
 ])
