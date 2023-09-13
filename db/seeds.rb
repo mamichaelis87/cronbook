@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 User.destroy_all
 Profile.destroy_all
+Post.destroy_all
 
 User.create([
   { email: "mark@mark.mark",
@@ -99,5 +100,12 @@ Profile.create([
     first_name: "Kyle",
     last_name: "Burko",
     user: User.find_by(email: "burko@burko.burko")
+  }
+])
+
+Post.create([
+  {
+    author_id: User.find_by(email: "mark@mark.mark").id,
+    body: "Welcome to CronBook peeps."
   }
 ])

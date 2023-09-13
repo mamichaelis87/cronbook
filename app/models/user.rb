@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :profile
-  accepts_nested_attributes_for :profile, allow_desroy: true
+  accepts_nested_attributes_for :profile, allow_destroy: true
+  has_many :posts, foreign_key: "author_id"
 end
