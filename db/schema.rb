@@ -26,12 +26,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_13_155718) do
 
   create_table "friendships", force: :cascade do |t|
     t.string "status"
-    t.bigint "requester_id"
-    t.bigint "accepter_id"
+    t.bigint "user_id"
+    t.bigint "friend_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["accepter_id"], name: "index_friendships_on_accepter_id"
-    t.index ["requester_id"], name: "index_friendships_on_requester_id"
+    t.index ["friend_id"], name: "index_friendships_on_friend_id"
+    t.index ["user_id"], name: "index_friendships_on_user_id"
   end
 
   create_table "likes", force: :cascade do |t|

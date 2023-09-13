@@ -10,6 +10,6 @@ class User < ApplicationRecord
   has_many :comments, foreign_key: "author_id"
   has_many :likes, foreign_key: "liker_id"
   has_many :friendships
-  has_many :requesters, through: :friendships, class_name: "User", foreign_key: "requester_id"
-  has_many :accepters, through: :friendships, class_name: "User", foreign_key: "accepter_id"
+  has_many :friends, through: :friendships, class_name: "User", foreign_key: "friend_id"
+  
 end

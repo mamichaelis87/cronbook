@@ -10,6 +10,7 @@ Profile.destroy_all
 Post.destroy_all
 Comment.destroy_all
 Like.destroy_all
+Friendship.destroy_all
 
 User.create([
   { email: "mark@mark.mark",
@@ -152,5 +153,23 @@ Like.create([
   {
     likable: Comment.first,
     liker: User.offset(2).fifth
+  }
+])
+
+Friendship.create([
+  {
+    status: "friend",
+    user: User.first,
+    friend: User.second
+  },
+  {
+    status: "pending",
+    user: User.first,
+    friend: User.third
+  },
+  {
+    status: "friend",
+    user: User.first,
+    friend: User.fourth
   }
 ])
