@@ -9,6 +9,7 @@ User.destroy_all
 Profile.destroy_all
 Post.destroy_all
 Comment.destroy_all
+Like.destroy_all
 
 User.create([
   { email: "mark@mark.mark",
@@ -116,5 +117,40 @@ Comment.create([
     author: User.find_by(email: "peter@peter.peter"),
     post: Post.first,
     body: "Pumped to be here fellas."
+  }
+])
+
+Like.create([
+  {
+    likable: Post.first,
+    liker: User.last
+  },
+  {
+    likable: Post.first,
+    liker: User.second
+  },
+  {
+    likable: Post.first,
+    liker: User.third
+  },
+  {
+    likable: Post.first,
+    liker: User.fourth
+  },
+  {
+    likable: Post.first,
+    liker: User.fifth
+  },
+  {
+    likable: Comment.first,
+    liker: User.first
+  },
+  {
+    likable: Comment.first,
+    liker: User.offset(1).fifth
+  },
+  {
+    likable: Comment.first,
+    liker: User.offset(2).fifth
   }
 ])

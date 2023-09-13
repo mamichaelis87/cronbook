@@ -8,4 +8,5 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :profile, allow_destroy: true
   has_many :posts, foreign_key: "author_id"
   has_many :comments, foreign_key: "author_id"
+  has_many :likes, foreign_key: "liker_id"
 end
