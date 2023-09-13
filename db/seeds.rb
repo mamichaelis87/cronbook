@@ -143,7 +143,7 @@ Like.create([
   },
   {
     likable: Comment.first,
-    liker: User.first
+    liker: User.last
   },
   {
     likable: Comment.first,
