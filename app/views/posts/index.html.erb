@@ -1,2 +1,9 @@
 <h1>Welcome to CronBook.</h1>
 <h6>Signifying nothing since 1975ish.</h6>
+
+<% @posts.each do |post| %>
+  <h5><%= link_to post.author.profile.first_name, user_path(current_user) %></h3>
+  <p><%= post.body %></p>
+<% end %>
+
+<%= link_to "Your Profile", user_path(current_user) %>
