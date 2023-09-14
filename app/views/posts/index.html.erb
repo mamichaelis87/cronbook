@@ -1,9 +1,17 @@
 <h1>Welcome to CronBook.</h1>
 <h6>Signifying nothing since 1975ish.</h6>
-
+<%= link_to "Your Profile", user_path(current_user) %>
+<h2>Recent Posts</h2>
 <% @posts.each do |post| %>
   <h5><%= link_to post.author.profile.first_name, user_path(current_user) %></h3>
   <p><%= post.body %></p>
+  <p><%= post.likes.count %> likes</p>
+  <ul>
+    <% post.comments.each do |comment| %>
+      <li>
+        <h6><%= link_to comment.author.profile.first_name, user_path(comment.author) %></h6>
+        <p><%= comment.body %></p>
+      </li>
+    <% end %>
+  </ul>
 <% end %>
-
-<%= link_to "Your Profile", user_path(current_user) %>
