@@ -5,6 +5,7 @@
 <% if friendship.status == "pending" %>
     - PENDING 
   <% end %>
+  <%= link_to "See Profile", user_path(friendship.friend) %>
 </li>
 <% end %>
 </ul>
@@ -13,6 +14,7 @@
   <% @users.each do |user| %>
   <li>
   <%= user.profile.first_name%> <%= user.profile.last_name%>
+  <%= link_to "See Profile", user_path(user) %>
   </li>
   <% end %>
 </ul>
