@@ -10,6 +10,14 @@
   </ul>
 </div>
 <div>
+  <h3>What's on your mind?</h3>
+  <% form_with model: @post do |form| %>
+  <%= form.label :body, "Say what you need to say, friend" %>
+  <%= form.text_area :body %>
+  <%= form.submit %>
+<% end %>
+</div>
+<div>
   <h3>Timeline</h3>
   <% @user.posts.each do |post| %>
   <h5><%= post.author.profile.first_name %></h3>
