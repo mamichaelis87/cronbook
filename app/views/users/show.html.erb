@@ -9,6 +9,9 @@
     <li>Quote: <%=@profile.quote%></li>
     <li>Other Info: <%=@profile.other_info%></li>
   </ul>
+  <% if @user == current_user %>
+    <%= link_to "Edit Profile", edit_profile_path %>
+  <% end %>
 </div>
 <%# link to create new post %>
 <% if @user == current_user %>
