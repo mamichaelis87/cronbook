@@ -1,5 +1,6 @@
-<% form_with model: @post do |form| %>
-  <%= form.label :body, "Say what you need to say, friend" %>
-  <%= form.text_area :body %>
+<h3>Hey <%=current_user.profile.first_name%>, what's on your mind?</h3>
+<%= form_with model: @post do |form| %>
+  <%= form.text_area :body, value: "What's on your mind..." %>
+  <%= form.hidden_field :author_id, value: current_user.id %>
   <%= form.submit %>
 <% end %>
