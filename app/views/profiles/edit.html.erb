@@ -1,0 +1,18 @@
+<h3>Hey <%=current_user.profile.first_name%>, edit your profile!</h3>
+<%= form_with model: @profile do |form| %>
+<%= form.label :first_name %>
+<%= form.text_field :first_name %>
+<%= form.label :last_name %>
+<%= form.text_field :last_name %>
+<%= form.label :birthday %>
+<%= form.date_field :birthday %>
+<%= form.label :hometown %>
+<%= form.text_field :hometown %>
+<%= form.label :occupation %>
+<%= form.text_field :occupation %>
+<%= form.label :quote, "Favorite quote" %>
+<%= form.text_field :quote %>
+<%= form.label :other_info %>
+<%= form.text_area :other_info %>
+<%= form.submit %>
+<% end %>
