@@ -2,6 +2,8 @@
 <h6>Signifying nothing since 1975ish.</h6>
 <%= link_to "Your Profile", user_path(current_user) %>
 <h2>Recent Posts</h2>
+<%# show all the posts
+!need to limit this to just posts of friends of the user %>
 <% @posts.each do |post| %>
   <h5><%= link_to post.author.profile.first_name, user_path(current_user) %></h3>
   <p><%= post.body %></p>

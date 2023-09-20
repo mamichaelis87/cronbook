@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find(params[:id])
+    @user = User.find(params[:id]) # this is not always the current_user
     @profile = @user.profile
-    @post = Post.new
+    @post = Post.new # this is for the post in the timeline
   end
 
   def index

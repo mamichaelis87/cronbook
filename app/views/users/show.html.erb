@@ -1,4 +1,5 @@
-<div>
+<div> 
+<%# show profile information %>
   <h3>Profile</h3>
   <ul>
     <li>Name: <%=@profile.first_name%> <%=@profile.last_name%></li>
@@ -10,6 +11,8 @@
   </ul>
 </div>
 <div>
+  <%# form for submitting a new post
+  !not yet connected %>
   <h3>What's on your mind?</h3>
   <% form_with model: @post do |form| %>
   <%= form.label :body, "Say what you need to say, friend" %>
@@ -19,6 +22,8 @@
 </div>
 <div>
   <h3>Timeline</h3>
+  <%# show all previous posts
+  !need to limit this to 'recent' posts %>
   <% @user.posts.each do |post| %>
   <h5><%= post.author.profile.first_name %></h3>
   <p><%= post.body %></p>
