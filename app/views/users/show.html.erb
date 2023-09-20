@@ -10,20 +10,17 @@
     <li>Other Info: <%=@profile.other_info%></li>
   </ul>
 </div>
-<div>
-  <%# form for submitting a new post
-  !not yet connected %>
-  <h3>What's on your mind?</h3>
-  <% form_with model: @post do |form| %>
-  <%= form.label :body, "Say what you need to say, friend" %>
-  <%= form.text_area :body %>
-  <%= form.submit %>
+<%# link to create new post %>
+<% if @user == current_user %>
+  <div>
+    <h3>Got something on your mind?</h3>
+    <%= link_to "New Post", new_post_path %>
+  </div>
 <% end %>
-</div>
+<%# show all previous posts
+  !need to limit this to 'recent' posts %>
 <div>
   <h3>Timeline</h3>
-  <%# show all previous posts
-  !need to limit this to 'recent' posts %>
   <% @user.posts.each do |post| %>
   <h5><%= post.author.profile.first_name %></h3>
   <p><%= post.body %></p>
