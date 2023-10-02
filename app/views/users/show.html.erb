@@ -13,6 +13,10 @@
     <%= link_to "Edit Profile", edit_profile_path %>
   <% end %>
 </div>
+<%# link to see friends %>
+<% if @user == current_user %>
+    <%= link_to "Friends", users_path %>
+  <% end %>
 <%# link to create new post %>
 <% if @user == current_user %>
   <div>
