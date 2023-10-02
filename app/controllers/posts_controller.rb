@@ -30,7 +30,7 @@ class PostsController < ApplicationController
 
   def like
     @post = Post.find(params[:id])
-    Like.create(likable_id: @post.id, liker_id: current_user.id)
+    Like.create(likable_id: @post.id, liker_id: current_user.id, likable_type: "post")
     redirect_to post_path(@post) 
   end
 
