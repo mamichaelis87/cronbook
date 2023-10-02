@@ -8,6 +8,6 @@ Rails.application.routes.draw do
   resources :profiles
   resources :posts
   resources :comments
-  resources :likes
   resources :friendships
+  put '/post/:id/like', to: 'posts#like', as: 'like'
 end
