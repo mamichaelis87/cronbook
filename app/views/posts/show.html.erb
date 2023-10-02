@@ -1,0 +1,13 @@
+<h5><%= link_to @post.author.profile.first_name, user_path(@post.author) %></h3>
+  <p><%= @post.body %></p>
+  <div>
+    <p><%= @post.likes.count %> likes</p>
+  </div>
+  <ul>
+    <% @post.comments.each do |comment| %>
+      <li>
+        <h6><%= link_to comment.author.profile.first_name, user_path(comment.author) %></h6>
+        <p><%= comment.body %></p>
+      </li>
+    <% end %>
+  </ul>
