@@ -5,7 +5,7 @@
 <%# show all the posts
 !need to limit this to just posts of friends of the user %>
 <% @posts.each do |post| %>
-  <h5><%= link_to post.author.profile.first_name, user_path(current_user) %></h3>
+  <h5><%= link_to post.author.profile.first_name, user_path(post.author) %></h3>
   <p><%= post.body %></p>
   <p><%= post.likes.count %> likes</p>
   <ul>
