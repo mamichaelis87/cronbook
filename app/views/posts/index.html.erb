@@ -7,7 +7,13 @@
 <% @posts.each do |post| %>
   <h5><%= link_to post.author.profile.first_name, user_path(post.author) %></h3>
   <p><%= post.body %></p>
-  <p><%= post.likes.count %> likes</p>
+  <div>
+    <%= form_with url: "/likes", method: :post do |form| %>
+      <%= form.hidden_field :post_id, value: post.id %>
+      <%= form.submit "Like" %>
+    <% end %>
+    <p><%= post.likes.count %> likes</p>
+  </div>
   <ul>
     <% post.comments.each do |comment| %>
       <li>
