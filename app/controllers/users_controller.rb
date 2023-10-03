@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id]) # this is not always the current_user
-    @profile = @user.profile
+    if @user.profile
+      @profile = @user.profile
+    else 
+      @profile = Profile.create(user_id: @user.id)
+    end
   end
 
   def index

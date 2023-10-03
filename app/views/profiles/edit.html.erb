@@ -1,4 +1,4 @@
-<h3>Hey <%=current_user.profile.first_name%>, edit your profile!</h3>
+<h3>Hey <%=current_user.username%>, edit your profile!</h3>
 <%= form_with model: @profile do |form| %>
 <%= form.label :first_name %>
 <%= form.text_field :first_name %>
