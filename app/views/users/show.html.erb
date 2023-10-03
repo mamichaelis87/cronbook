@@ -2,7 +2,7 @@
 <%# show profile information %>
   <h3>Profile</h3>
   <ul>
-    <li>Name: <%=@profile.first_name%> <%=@profile.last_name%></li>
+    <li>Name: <%=@username%> <%=@profile.last_name%></li>
     <li>Birthday: <%=@profile.birthday%></li>
     <li>Hometown: <%=@profile.hometown%></li>
     <li>Occupation: <%=@profile.occupation%></li>
@@ -29,7 +29,7 @@
 <div>
   <h3>Timeline</h3>
   <% @user.posts.each do |post| %>
-  <h5><%= post.author.profile.first_name %></h3>
+  <h5><%= post.author.username %></h3>
   <p><%= post.body %></p>
   <div>
     <% if post.liked?(current_user) %>
@@ -42,7 +42,7 @@
   <ul>
     <% post.comments.each do |comment| %>
       <li>
-        <h6><%= link_to comment.author.profile.first_name, user_path(comment.author) %></h6>
+        <h6><%= link_to comment.author.username, user_path(comment.author) %></h6>
         <p><%= comment.body %></p>
       </li>
     <% end %>
