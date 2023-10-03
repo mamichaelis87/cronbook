@@ -14,37 +14,48 @@ Friendship.destroy_all
 
 User.create([
   { email: "mark@mark.mark",
-    password: "badminton"
+    password: "badminton",
+    username: "markyMark"
   },
   { email: "peter@peter.peter",
-    password: "baseball"
+    password: "baseball",
+    username: "slim_petey"
   },
   { email: "steve@steve.steve",
-    password: "tennis"
+    password: "tennis",
+    username: "Falco"
   },
   { email: "char@char.char",
-    password: "basketball"
+    password: "basketball",
+    username: "charbone"
   },
   { email: "wes@wes.wes",
-    password: "crossfit"
+    password: "crossfit",
+    username: "wes_the_best"
   },
   { email: "mac@mac.mac",
-    password: "soccer"
+    password: "soccer",
+    username: "diesel"
   },
   { email: "jared@jared.jared",
-    password: "poetry"
+    password: "poetry",
+    username: "jahboi"
   },
   { email: "marshall@marshall.marshall",
-    password: "driving"
+    password: "driving",
+    username: "chic-fil-a_marsh"
   },
   { email: "jeff@jeff.jeff",
-    password: "football"
+    password: "football",
+    username: "desert_jeff"
   },
   { email: "roper@roper.roper",
-    password: "beats"
+    password: "beats",
+    username: "DJNVWLS"
   },
   { email: "burko@burko.burko",
-    password: "golf"
+    password: "golf",
+    username: "cuser_4_lyfe"
   }
 ])
 
