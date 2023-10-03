@@ -31,7 +31,14 @@
   <% @user.posts.each do |post| %>
   <h5><%= post.author.profile.first_name %></h3>
   <p><%= post.body %></p>
-  <p><%= post.likes.count %> likes</p>
+  <div>
+    <% if post.liked?(current_user) %>
+      <%= button_to "like", like_path(post), method: "put", disabled: true %>
+    <% else %>
+      <%= button_to "like", like_path(post), method: "put" %>
+    <% end %>
+    <p><%= post.likes.count %> likes</p>
+  </div>
   <ul>
     <% post.comments.each do |comment| %>
       <li>
