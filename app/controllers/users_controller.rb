@@ -6,6 +6,7 @@ class UsersController < ApplicationController
     else 
       @profile = Profile.create(user_id: @user.id)
     end
+    @comment = Comment.new
   end
 
   def index
