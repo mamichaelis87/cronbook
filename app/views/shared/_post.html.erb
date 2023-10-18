@@ -1,0 +1,10 @@
+<h3><%= link_to post.author.username, user_path(post.author) %></h3>
+  <p><%= post.body %></p>
+  <div>
+    <% if post.liked?(current_user) %>
+      <%= button_to "like", like_path(post), method: "put", disabled: true %>
+    <% else %>
+      <%= button_to "like", like_path(post), method: "put" %>
+    <% end %>
+    <p><%= post.likes.count %> likes</p>
+  </div>
