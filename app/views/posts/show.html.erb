@@ -15,4 +15,10 @@
         <p><%= comment.body %></p>
       </li>
     <% end %>
+    <li>
+      <%= form_with model: @comment do |form| %>
+        <%= form.text_area :body, value: "Add a comment..." %>
+        <%= form.hidden_field :post_id, value: @post.id %>
+      <% end %>
+    </li>
   </ul>
