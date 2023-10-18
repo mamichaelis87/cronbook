@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   resources :posts
   resources :comments
   resources :friendships
+  resources :friend_requests
   put '/post/:id/like', to: 'posts#like', as: 'like'
 end
