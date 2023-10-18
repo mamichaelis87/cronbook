@@ -22,6 +22,14 @@
         <p><%= comment.body %></p>
       </li>
     <% end %>
+    <li>
+      <%= form_with model: @comment do |form| %>
+        <%= form.text_area :body, value: "Add a comment..." %>
+        <%= form.hidden_field :post_id, value: post.id %>
+        <%= form.hidden_field :author_id, value: current_user.id %>
+        <%= form.submit %>
+      <% end %>
+    </li>
   </ul>
   <%= link_to "See full post", post_path(post) %>
 <% end %>
