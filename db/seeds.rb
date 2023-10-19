@@ -169,18 +169,22 @@ Like.create([
 
 Friendship.create([
   {
-    status: "friend",
     user: User.first,
     friend: User.second
   },
   {
-    status: "pending",
     user: User.first,
     friend: User.third
   },
   {
-    status: "friend",
     user: User.first,
     friend: User.fourth
+  }
+])
+
+FriendRequest.create([
+  {
+    user: User.first,
+    friend: User.fifth
   }
 ])
