@@ -11,7 +11,7 @@ class FriendRequestsController < ApplicationController
     @friend_request = current_user.friend_requests.new(friend: friend)
 
     if @friend_request.save
-      render :show, status: :created, location: @friend_request
+      redirect_to user_path(@friend_request.friend)
     else
       render json: @friend_request.errors, status: :unprocessable_entity
     end
