@@ -11,6 +11,7 @@ Post.destroy_all
 Comment.destroy_all
 Like.destroy_all
 Friendship.destroy_all
+FriendRequest.destroy_all
 
 User.create([
   { email: "mark@mark.mark",
@@ -23,7 +24,7 @@ User.create([
   },
   { email: "steve@steve.steve",
     password: "tennis",
-    username: "Falco"
+    username: "falco"
   },
   { email: "char@char.char",
     password: "basketball",
@@ -48,7 +49,9 @@ User.create([
   { email: "jeff@jeff.jeff",
     password: "football",
     username: "desert_jeff"
-  },
+  }])
+  
+User.create([
   { email: "roper@roper.roper",
     password: "beats",
     username: "DJNVWLS"
@@ -56,8 +59,7 @@ User.create([
   { email: "burko@burko.burko",
     password: "golf",
     username: "cuser_4_lyfe"
-  }
-])
+  }])
 
 Profile.create([
   { 
