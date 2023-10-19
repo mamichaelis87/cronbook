@@ -186,5 +186,17 @@ FriendRequest.create([
   {
     user: User.first,
     friend: User.fifth
+  },
+  {
+    user: User.third_to_last,
+    friend: User.first
+  },
+  {
+    user: User.second_to_last,
+    friend: User.first
+  },
+  {
+    user: User.last,
+    friend: User.first
   }
 ])
