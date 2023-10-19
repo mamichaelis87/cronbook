@@ -3,8 +3,7 @@
 <%# show all friendships, friend or pending %>
   <% @friend_requests.each do |friend_request| %>
   <li>
-    <%= friend_request.user.username %>
-    <%= link_to "See Profile", user_path(friend_request.user) %>
+    <%= render "shared/user", :user => friend_request.user %>
     <div>
       <%= button_to "Accept", friend_request_path(friend_request.id), method: "put" %>
       <%= button_to "Reject", friend_request_path(friend_request.id), method: "delete"  %>
@@ -17,8 +16,8 @@
 <ul>
 <%# show all friendships, friend or pending %>
   <% @pending_friends.each do |friend| %>
-  <li><%= friend.username %>
-    <%= link_to "See Profile", user_path(friend) %>
+  <li>
+    <%= render "shared/user", :user => friend %>
   </li>
   <% end %>
 </ul>
@@ -27,8 +26,8 @@
 <ul>
 <%# show all friendships, friend or pending %>
   <% @friends.each do |friend| %>
-  <li><%= friend.username %>
-    <%= link_to "See Profile", user_path(friend) %>
+  <li>
+    <%= render "shared/user", :user => friend %>
   </li>
   <% end %>
 </ul>
@@ -39,8 +38,7 @@
 !need to find way to remove the friends/pending friends %>
   <% @potential_friends.each do |user| %>
   <li>
-  <%= user.username %>
-  <%= link_to "See Profile", user_path(user) %>
+    <%= render "shared/user", :user => user %>
   </li>
   <% end %>
 </ul>
