@@ -6,8 +6,8 @@
     <%= friend_request.user.username %>
     <%= link_to "See Profile", user_path(friend_request.user) %>
     <div>
-      <%= button_to "Accept" %>
-      <%= button_to "Reject" %>
+      <%= button_to "Accept", friend_request_path(friend_request.id), method: "put" %>
+      <%= button_to "Reject", friend_request_path(friend_request.id), method: "delete"  %>
     </div>
   </li>
   <% end %>
