@@ -1,12 +1,9 @@
 <h2>Your Friends!</h2>
 <ul>
 <%# show all friendships, friend or pending %>
-<% current_user.friendships.each do |friendship| %>
-<li><%= friendship.friend.profile.first_name %> <%= friendship.friend.profile.last_name %>
-<% if friendship.status == "pending" %>
-    - PENDING 
-  <% end %>
-  <%= link_to "See Profile", user_path(friendship.friend) %>
+<% current_user.friends.each do |friend| %>
+<li><%= friend.username %> <%= friend.username %>
+  <%= link_to "See Profile", user_path(friend) %>
 </li>
 <% end %>
 </ul>
@@ -16,7 +13,7 @@
 !need to find way to remove the friends/pending friends %>
   <% @users.each do |user| %>
   <li>
-  <%= user.profile.first_name%> <%= user.profile.last_name%>
+  <%= user.username %> <%= user.username %>
   <%= link_to "See Profile", user_path(user) %>
   </li>
   <% end %>
