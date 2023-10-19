@@ -8,10 +8,16 @@
     <%= link_to "Edit Profile", edit_profile_path %>
   <% end %>
 </div>
-<%# link to see friends %>
-<% if @user == current_user %>
+<%# link to see friends or button to send request %>
+<div>
+  <% if @user == current_user %>
     <%= link_to "Friends", users_path %>
+  <% else %>
+    <% unless current_user.pending_friends.include?(@user) or @user.pending_friends.include?(current_user) %>
+      <%= button_to "Send Friend Request", friend_requests_path(:friend_id => @user.id), method: "post" %>
+    <% end %>
   <% end %>
+</div>
 <%# link to create new post %>
 <% if @user == current_user %>
   <div>
