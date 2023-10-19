@@ -1,11 +1,20 @@
 <h2>Your Friends!</h2>
 <ul>
 <%# show all friendships, friend or pending %>
-<% current_user.friends.each do |friend| %>
-<li><%= friend.username %>
-  <%= link_to "See Profile", user_path(friend) %>
-</li>
-<% end %>
+  <% current_user.friends.each do |friend| %>
+  <li><%= friend.username %>
+    <%= link_to "See Profile", user_path(friend) %>
+  </li>
+  <% end %>
+</ul>
+<h2>Your Pending Friends!</h2>
+<ul>
+<%# show all friendships, friend or pending %>
+  <% current_user.pending_friends.each do |friend| %>
+  <li><%= friend.username %>
+    <%= link_to "See Profile", user_path(friend) %>
+  </li>
+  <% end %>
 </ul>
 <h2>Find new friends</h2>
 <ul>
