@@ -12,8 +12,10 @@
 
   <body>
     <header>
-      <%= link_to "Home", root_path %>
-      <%= button_to "log-out", destroy_user_session_path, method: :delete  %>
+      <nav class="navbar">
+        <%= link_to "Home", root_path %>
+        <%= button_to "log-out", destroy_user_session_path, method: :delete  %>
+      </nav>
     </header>
     <%= yield %>
   </body>
