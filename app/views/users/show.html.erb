@@ -12,10 +12,10 @@
 <div>
   <% if @user == current_user %>
     <%= link_to "Friends", users_path %>
+  <% elsif current_user.pending_friends.include?(@user) or @user.pending_friends.include?(current_user) %>
+    <p>Friend Request Pending</p>
   <% else %>
-    <% unless current_user.pending_friends.include?(@user) or @user.pending_friends.include?(current_user) %>
-      <%= button_to "Send Friend Request", friend_requests_path(:friend_id => @user.id), method: "post" %>
-    <% end %>
+    <%= button_to "Send Friend Request", friend_requests_path(:friend_id => @user.id), method: "post" %>
   <% end %>
 </div>
 <%# link to create new post %>
