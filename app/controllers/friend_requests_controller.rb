@@ -20,13 +20,11 @@ class FriendRequestsController < ApplicationController
   def update
     @friend_request.accept
     head :no_content
-    redirect_back(fallback_location: root_path)
   end
 
   def destroy
     @friend_request.destroy
     head :no_content
-    redirect_back(fallback_location: root_path)
   end
 
   private
