@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @friends = current_user.friends
     @pending_friends = current_user.pending_friends
     @friend_requests = FriendRequest.where(friend: current_user)
-    @potential_friends = User.all
+    @potential_friends = find_potential_friends(@friends, @pending_friends, @friend_requests)
   end
 
   private
@@ -27,4 +27,22 @@ class UsersController < ApplicationController
       @profile = Profile.create(user_id: user.id)
     end
   end
+
+  def find_potential_friends(friends, pending_friends, friend_requests)
+    # all users minus self minus friends minus pending friends minus friend requests
+    connections = friends + pending_friends
+    connections << current_user
+    friend_requests.each do |req|
+      connections << req.user
+    end
+    potential_friends = User.all - connections
+    return potential_friends
+  end
 end
+
+connections = User.first.friends + User.first.pending_friends
+connections << User.first
+User.first.friend_requests.each do |req|
+  connections << req.user
+end
+potential_friends = User.all - connections
