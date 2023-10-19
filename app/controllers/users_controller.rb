@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id]) # this is not always the current_user
     if @user.profile
       @profile = @user.profile
-    else 
+    else
       @profile = Profile.create(user_id: @user.id)
     end
     @comment = Comment.new
