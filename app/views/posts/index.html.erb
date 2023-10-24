@@ -1,22 +1,36 @@
-<h1>Welcome to CronBook.</h1>
-<h6>Signifying nothing since 1975ish.</h6>
-<%= link_to "Your Profile", user_path(current_user) %>
-<h2>Recent Posts</h2>
+<div class="container-fluid">
+  <h1>Welcome to CronBook.</h1>
+  <h6>Signifying nothing since 1975ish.</h6>
+</div>
+<div class="container-fluid">
+  <h2>Recent Posts</h2>
+</div>
 <%# show all the posts
 !need to limit this to just posts of friends of the user %>
-<% @posts.each do |post| %>
-  <div class="post-body">
-    <%= render "shared/post", :post => post %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-8">
+      <% @posts.each do |post| %>
+      <div class="row gy-2 border">
+        <div class="post-body">
+          <%= render "shared/post", :post => post %>
+        </div>
+        <ul class="comments">
+          <% post.comments.each do |comment| %>
+            <li>
+              <%= render "shared/comment", :comment => comment %>
+            </li>
+          <% end %>
+          <li>
+            <%= render "shared/comment_form", :comment => @comment, :post => post %>
+          </li>
+        </ul>
+        <%= link_to "See full post", post_path(post) %>
+      </div>
+      <% end %>
+    </div>
+    <div class="col-4">
+      <h2>Heres your friends</h2>
+    </div>
   </div>
-  <ul>
-    <% post.comments.each do |comment| %>
-      <li>
-        <%= render "shared/comment", :comment => comment %>
-      </li>
-    <% end %>
-    <li>
-      <%= render "shared/comment_form", :comment => @comment, :post => post %>
-    </li>
-  </ul>
-  <%= link_to "See full post", post_path(post) %>
-<% end %>
+</div>
