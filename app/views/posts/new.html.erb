@@ -1,6 +1,14 @@
-<h3>Hey <%=current_user.profile.first_name%>, what's on your mind?</h3>
-<%= form_with model: @post do |form| %>
-  <%= form.text_area :body, value: "What's on your mind..." %>
-  <%= form.hidden_field :author_id, value: current_user.id %>
-  <%= form.submit %>
-<% end %>
+<div class="container">
+  <h3>Hey <%=current_user.profile.first_name%>, what's on your mind?</h3>
+  <div class="row border">
+    <%= form_with model: @post do |form| %>
+      <div>
+        <%= form.text_area :body, placeholder: "What's on your mind..." %>
+        <%= form.hidden_field :author_id, value: current_user.id %>
+      </div>
+      <div>
+        <%= form.submit %>
+      </div>
+    <% end %>
+  </div>
+</div>
