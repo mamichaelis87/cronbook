@@ -15,17 +15,6 @@
         <div class="post-body">
           <%= render "shared/post", :post => post %>
         </div>
-        <ul class="comments">
-          <% post.comments.each do |comment| %>
-            <li>
-              <%= render "shared/comment", :comment => comment %>
-            </li>
-          <% end %>
-          <li>
-            <%= render "shared/comment_form", :comment => @comment, :post => post %>
-          </li>
-        </ul>
-        <%= link_to "See full post", post_path(post) %>
       </div>
       <% end %>
     </div>

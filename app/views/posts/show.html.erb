@@ -2,14 +2,4 @@
   <div class="row post-body">
     <%= render "shared/post", :post => @post %>
   </div>
-  <ul class="row">
-    <% @post.comments.each do |comment| %>
-      <li>
-        <%= render "shared/comment", :comment => comment %>
-      </li>
-    <% end %>
-    <li>
-      <%= render "shared/comment_form", :comment => @comment, :post => @post %>
-    </li>
-  </ul>
 </div>
