@@ -27,17 +27,17 @@
     <%# link to create new post %>
     <div class="col-7">
       <% if @user == current_user %>
-        <div>
+        <div class="card text-bg-primary">
           <h3>Got something on your mind?</h3>
-          <%= link_to "New Post", new_post_path %>
+          <%= link_to "New Post", new_post_path, class: "btn btn-secondary w-25" %>
         </div>
       <% end %>
       <%# show all previous posts
         !need to limit this to 'recent' posts %>
       <div>
-        <h3>Timeline</h3>
+        <h3 class="text-bg-primary">Timeline</h3>
         <% @user.posts.each do |post| %>
-        <div class="post-body">
+        <div class="card text-bg-primary">
           <%= render "shared/post", :post => post %>
         </div>
         <% end %>
