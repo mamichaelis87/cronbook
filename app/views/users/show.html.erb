@@ -1,39 +1,47 @@
-<div> 
-<%# show profile information %>
-  <h3>Profile</h3>
-  <div class="profile">
-    <%= render "profile", :profile => @user.profile %>
+<div class="container">
+  <div class="row">
+    <div class="col-5">
+      <div>
+      <%# show profile information %>
+        <h3>Profile</h3>
+        <div class="profile">
+          <%= render "profile", :profile => @user.profile %>
+        </div>
+        <% if @user == current_user %>
+          <%= link_to "Edit Profile", edit_profile_path %>
+        <% end %>
+      </div>
+      <%# link to see friends or button to send request %>
+      <div>
+        <% if @user == current_user %>
+          <%= link_to "Friends", users_path %>
+        <% elsif current_user.friends.include?(@user) %>
+          <p>You two are friends!</p>
+        <% elsif current_user.pending_friends.include?(@user) or @user.pending_friends.include?(current_user) %>
+          <p>Friend Request Pending</p>
+        <% else %>
+          <%= button_to "Send Friend Request", friend_requests_path(:friend_id => @user.id), method: "post" %>
+        <% end %>
+      </div>
+    </div> 
+    <%# link to create new post %>
+    <div class="col-7">
+      <% if @user == current_user %>
+        <div>
+          <h3>Got something on your mind?</h3>
+          <%= link_to "New Post", new_post_path %>
+        </div>
+      <% end %>
+      <%# show all previous posts
+        !need to limit this to 'recent' posts %>
+      <div>
+        <h3>Timeline</h3>
+        <% @user.posts.each do |post| %>
+        <div class="post-body">
+          <%= render "shared/post", :post => post %>
+        </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-  <% if @user == current_user %>
-    <%= link_to "Edit Profile", edit_profile_path %>
-  <% end %>
-</div>
-<%# link to see friends or button to send request %>
-<div>
-  <% if @user == current_user %>
-    <%= link_to "Friends", users_path %>
-  <% elsif current_user.friends.include?(@user) %>
-    <p>You two are friends!</p>
-  <% elsif current_user.pending_friends.include?(@user) or @user.pending_friends.include?(current_user) %>
-    <p>Friend Request Pending</p>
-  <% else %>
-    <%= button_to "Send Friend Request", friend_requests_path(:friend_id => @user.id), method: "post" %>
-  <% end %>
-</div>
-<%# link to create new post %>
-<% if @user == current_user %>
-  <div>
-    <h3>Got something on your mind?</h3>
-    <%= link_to "New Post", new_post_path %>
-  </div>
-<% end %>
-<%# show all previous posts
-  !need to limit this to 'recent' posts %>
-<div>
-  <h3>Timeline</h3>
-  <% @user.posts.each do |post| %>
-  <div class="post-body">
-    <%= render "shared/post", :post => post %>
-  </div>
-  <% end %>
 </div>
