@@ -2,24 +2,32 @@
   <h1>Welcome to CronBook.</h1>
   <h6>Signifying nothing since 1975ish.</h6>
 </div>
-<div class="container-fluid">
-  <h2>Recent Posts</h2>
-</div>
+
 <%# show all the posts
 !need to limit this to just posts of friends of the user %>
 <div class="container-fluid">
   <div class="row">
     <div class="col-8">
+      <div class="card text-bg-primary bg-opacity-50 p-2 mb-2 shadow">
+        <h2>Recent Posts</h2>
+      </div>
       <% @posts.each do |post| %>
-      <div class="row gy-2 border">
-        <div class="post-body">
-          <%= render "shared/post", :post => post %>
-        </div>
+      <div class="card text-bg-primary bg-opacity-50 p-2 mb-2 shadow">
+        <%= render "shared/post", :post => post %>
       </div>
       <% end %>
     </div>
     <div class="col-4">
-      <h2>Heres your friends</h2>
+      <div class="card text-bg-primary bg-opacity-50 p-2 mb-2 shadow">
+        <h2>Your friends</h2>
+        <ul class="list-group">
+          <% current_user.friends.each do |friend| %>
+          <li class="list-group-item">
+            <%= render "shared/user", :user => friend %>
+          </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
