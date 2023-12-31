@@ -1,18 +1,43 @@
-<h3>Hey <%=current_user.username%>, edit your profile!</h3>
-<%= form_with model: @profile do |form| %>
-<%= form.label :first_name %>
-<%= form.text_field :first_name %>
-<%= form.label :last_name %>
-<%= form.text_field :last_name %>
-<%= form.label :birthday %>
-<%= form.date_field :birthday %>
-<%= form.label :hometown %>
-<%= form.text_field :hometown %>
-<%= form.label :occupation %>
-<%= form.text_field :occupation %>
-<%= form.label :quote, "Favorite quote" %>
-<%= form.text_field :quote %>
-<%= form.label :other_info %>
-<%= form.text_area :other_info %>
-<%= form.submit %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-10">
+      <div class="card text-bg-primary bg-opacity-50 p-2 mb-2 shadow">
+        <h3>Hey <%=current_user.username%>, edit your profile!</h3>
+        <%= form_with model: @profile do |form| %>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <%= form.label :first_name %>
+            <%= form.text_field :first_name, class: "form-control text-bg-primary" %>
+          </li>
+          <li class="list-group-item">
+            <%= form.label :last_name %>
+            <%= form.text_field :last_name, class: "form-control text-bg-primary"  %>
+          </li>
+          <li class="list-group-item">
+            <%= form.label :birthday %>
+            <%= form.date_field :birthday, class: "form-control text-bg-primary"  %>
+          </li>
+          <li class="list-group-item">
+            <%= form.label :hometown %>
+            <%= form.text_field :hometown, class: "form-control text-bg-primary"  %>
+          </li>
+          <li class="list-group-item">
+            <%= form.label :occupation %>
+            <%= form.text_field :occupation, class: "form-control text-bg-primary"  %>
+          </li>
+          <li class="list-group-item">
+            <%= form.label :quote, "Favorite quote" %>
+            <%= form.text_field :quote, class: "form-control text-bg-primary"  %>
+          </li>
+          <li class="list-group-item">
+            <%= form.label :other_info %>
+            <%= form.text_area :other_info, class: "form-control text-bg-primary"  %>
+          </li>
+          </ul>
+          <%= form.submit "Update Profile", class: "btn btn-primary mt-2" %>
+        <% end %>
+        
+      </div>
+    </div>
+  </div>
+</div>
