@@ -35,9 +35,9 @@
       <%# show all previous posts
         !need to limit this to 'recent' posts %>
       <div class="card text-bg-primary bg-opacity-50 p-2">
-        <h3 class="">Timeline</h3>
+        <h3>Timeline</h3>
         <% @user.posts.each do |post| %>
-        <div class="">
+        <div>
           <%= render "shared/post", :post => post %>
         </div>
         <% end %>
