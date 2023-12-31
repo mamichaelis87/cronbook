@@ -9,7 +9,7 @@
   <p><%= post.likes.count %> respect</p>
 </div>
 <div class="ps-3">
-  <% post.comments.each do |comment| %>
+  <% post.recent_comments.each do |comment| %>
     <div>
       <%= render "shared/comment", :comment => comment %>
     </div>
