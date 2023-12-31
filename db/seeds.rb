@@ -46,17 +46,17 @@ User.create([
     password: "driving",
     username: "chic-fil-a_marsh"
   },
-  { email: "jeff@jeff.jeff",
-    password: "football",
-    username: "desert_jeff"
-  },
   { email: "roper@roper.roper",
-    password: "beats",
+    password: "beatss",
     username: "DJNVWLS"
   },
   { email: "burko@burko.burko",
-    password: "golf",
+    password: "golfer",
     username: "cuser_4_lyfe"
+  },
+  { email: "jeff@jeff.jeff",
+    password: "football",
+    username: "desert_jeff"
   }])
 
 Profile.create([
