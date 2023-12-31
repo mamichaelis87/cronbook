@@ -19,18 +19,18 @@
         <ul class="list-group">
         <%# show all friendships, friend or pending %>
           <% @friend_requests.each do |friend_request| %>
-          <li class="list-group-item">
-            <%= render "shared/user", :user => friend_request.user %>
-            <div>
-              <%= button_to "Accept", friend_request_path(friend_request.id), method: "put" %>
-              <%= button_to "Reject", friend_request_path(friend_request.id), method: "delete"  %>
+          <li class="list-group-item d-flex align-items-center">
+            <%= render "shared/user", :user => friend_request.user, class: "align-middle" %>
+            <div class="d-flex ms-auto">
+              <%= button_to "Accept", friend_request_path(friend_request.id), method: "put", class: "btn btn-primary me-2" %>
+              <%= button_to "Reject", friend_request_path(friend_request.id), method: "delete", class: "btn btn-secondary"  %>
             </div>
           </li>
           <% end %>
         </ul>
       </div>
       <% end %>
-      
+
       <% unless @pending_friends.empty? %>
       <div class="card text-bg-primary bg-opacity-50 p-2 mb-2 shadow">
         <h2>Your Pending Friends!</h2>
