@@ -8,7 +8,7 @@
           <%= render "profile", :profile => @user.profile %>
         </div>
         <% if @user == current_user %>
-          <%= link_to "Edit Profile", edit_profile_path, class: "btn btn-secondary Max-width-50" %>
+          <%= link_to "Edit Profile", edit_profile_path, class: "btn btn-secondary", style: "max-width:fit-content" %>
         <% end %>
       </div>
       <%# link to see friends or button to send request %>
@@ -29,7 +29,7 @@
       <% if @user == current_user %>
         <div class="card text-bg-primary bg-opacity-50 p-2">
           <h3>Got something on your mind?</h3>
-          <%= link_to "New Post", new_post_path, class: "btn btn-secondary w-25" %>
+          <%= link_to "New Post", new_post_path, class: "btn btn-secondary", style: "max-width:fit-content" %>
         </div>
       <% end %>
       <%# show all previous posts
