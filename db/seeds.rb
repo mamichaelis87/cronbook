@@ -49,9 +49,7 @@ User.create([
   { email: "jeff@jeff.jeff",
     password: "football",
     username: "desert_jeff"
-  }])
-  
-User.create([
+  },
   { email: "roper@roper.roper",
     password: "beats",
     username: "DJNVWLS"
