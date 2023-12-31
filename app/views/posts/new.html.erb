@@ -1,14 +1,20 @@
 <div class="container">
-  <h3>Hey <%=current_user.profile.first_name%>, what's on your mind?</h3>
-  <div class="row border">
-    <%= form_with model: @post do |form| %>
-      <div>
-        <%= form.text_area :body, placeholder: "What's on your mind..." %>
-        <%= form.hidden_field :author_id, value: current_user.id %>
+  <div class="row">
+    <div class="col-10">
+      <div class="card text-bg-primary bg-opacity-50 p-2 mb-2 shadow">
+        <h3>Hey <%=current_user.profile.first_name%>, what's on your mind?</h3>
+        <div>
+          <%= form_with model: @post do |form| %>
+            <div>
+              <%= form.text_area :body, placeholder: "What's on your mind...", class: "form-control" %>
+              <%= form.hidden_field :author_id, value: current_user.id %>
+            </div>
+            <div>
+              <%= form.submit "Submit Post", class: "btn btn-primary mt-2" %>
+            </div>
+          <% end %>
+        </div>
       </div>
-      <div>
-        <%= form.submit %>
-      </div>
-    <% end %>
+    </div>
   </div>
 </div>
