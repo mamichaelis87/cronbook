@@ -2,20 +2,22 @@
 <p><%= post.body %></p>
 <div>
   <% if post.liked?(current_user) %>
-    <%= button_to "like", like_path(post), method: "put", disabled: true %>
+    <%= button_to "respect", like_path(post), method: "put", disabled: true %>
   <% else %>
-    <%= button_to "like", like_path(post), method: "put" %>
+    <%= button_to "respect", like_path(post), method: "put" %>
   <% end %>
-  <p><%= post.likes.count %> likes</p>
+  <p><%= post.likes.count %> respect</p>
 </div>
-<ul>
+<div class="ps-3">
   <% post.comments.each do |comment| %>
-    <li>
+    <div>
       <%= render "shared/comment", :comment => comment %>
-    </li>
+    </div>
   <% end %>
-  <li>
+  <div>
     <%= render "shared/comment_form", :comment => @comment, :post => post %>
-  </li>
-</ul>
-<%= link_to "See full post", post_path(post) %>
+  </div>
+  <div>
+  <%= link_to "See All Comments", post_path(post) %>
+</div>
+</div>
