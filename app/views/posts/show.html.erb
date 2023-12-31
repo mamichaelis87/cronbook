@@ -1,27 +1,31 @@
 <div class="container">
-  <div class="row post-body">
-    <h3><%= link_to @post.author.username, user_path(@post.author) %></h3>
-<p><%= @post.body %></p>
-<div>
-  <% if @post.liked?(current_user) %>
-    <%= button_to "respect", like_path(@post), method: "put", disabled: true %>
-  <% else %>
-    <%= button_to "respect", like_path(@post), method: "put" %>
-  <% end %>
-  <p><%= @post.likes.count %> respect</p>
-</div>
-<div class="ps-3">
-  <% @post.comments.each do |comment| %>
-    <div>
-      <%= render "shared/comment", :comment => comment %>
+  <div class="row">
+    <div class="col-10 offset-1">
+      <div class="card text-bg-primary bg-opacity-50 p-2 mb-2 shadow">
+        <h3><%= link_to @post.author.username, user_path(@post.author) %></h3>
+        <p><%= @post.body %></p>
+        <div>
+          <% if @post.liked?(current_user) %>
+            <%= button_to "respect", like_path(@post), method: "put", disabled: true %>
+          <% else %>
+            <%= button_to "respect", like_path(@post), method: "put" %>
+          <% end %>
+          <p><%= @post.likes.count %> respect</p>
+        </div>
+        <div class="ps-3">
+          <% @post.comments.each do |comment| %>
+            <div>
+              <%= render "shared/comment", :comment => comment %>
+            </div>
+          <% end %>
+          <div>
+            <%= render "shared/comment_form", :comment => @comment, :post => @post %>
+          </div>
+          <div>
+          <%= link_to "See All Comments", post_path(@post) %>
+          </div>
+        </div>
+      </div>
     </div>
-  <% end %>
-  <div>
-    <%= render "shared/comment_form", :comment => @comment, :post => @post %>
-  </div>
-  <div>
-  <%= link_to "See All Comments", post_path(@post) %>
-</div>
-</div>
   </div>
 </div>
