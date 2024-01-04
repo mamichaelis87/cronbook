@@ -4,7 +4,7 @@
   <% if post.liked?(current_user) %>
     <div class="ms-2 d-flex">
       <%= image_tag("snap.png", size: "20x20", class: "me-1") %>
-      <p class="ms-2"><%= post.likes.count %> snaps</p>
+      <p class="ms-2 mb-0"><%= post.likes.count %> snaps</p>
     </div>
   <% else %>
     <%= button_to image_tag("snap.png", size: "20x20"), like_path(post), method: "put", class: "btn bg-transparent" %>
