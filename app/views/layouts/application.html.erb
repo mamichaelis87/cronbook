@@ -13,10 +13,11 @@
   <body class="bg-light">
       <nav class="navbar">
         <div class="container-fluid">
-          <div class="nav-link">
-            <%= link_to "Home", root_path, class: "btn btn-primary" %>
-          </div>
+          <p class="fs-1 text-secondary">&#x3A3;&#x3A6;&#x39F;</p>
           <div class="navbar justify-content-end">
+            <div class="nav-link">
+              <%= link_to "Home", root_path, class: "btn btn-primary me-3" %>
+            </div>
             <% if user_signed_in? %>
               <%= link_to "Your Profile", user_path(current_user), class: "nav-item btn btn-primary me-3" %>
             <% end %>
