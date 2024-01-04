@@ -1,4 +1,4 @@
-<p><%= link_to post.author.username, user_path(post.author), class: "link-underline link-underline-opacity-0 link-underline-opacity-75-hover" %></p>
+<p class="mb-0"><%= link_to post.author.username, user_path(post.author), class: "link-underline link-underline-opacity-0 link-underline-opacity-75-hover" %></p>
 <p><%= post.body %></p>
 <div class="d-flex mb-2">
   <% if post.liked?(current_user) %>
