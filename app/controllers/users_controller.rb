@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   def show
     @user = User.find(params[:id]) # this is not always the current_user
-    set_profile(@user)
+    @profile = set_profile(@user)
     @pending_friends = @user.pending_friends
     @friend_requests = FriendRequest.where(friend: @user)
     @comment = Comment.new
@@ -22,10 +22,11 @@ class UsersController < ApplicationController
 
   def set_profile(user)
     if user.profile
-      @profile = user.profile
+      profile = user.profile
     else
-      @profile = Profile.create(user_id: user.id)
+      profile = Profile.create(user_id: user.id)
     end
+    return profile
   end
 
   def find_potential_friends(friends, pending_friends, friend_requests)
