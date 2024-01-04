@@ -11,7 +11,7 @@
     <p class="ms-1">Give Respect</p>
   <% end %>
 </div>
-<div class="ps-3">
+<div class="ps-5">
   <% post.recent_comments.each do |comment| %>
     <div>
       <%= render "shared/comment", :comment => comment %>
@@ -20,7 +20,7 @@
   <div>
     <%= render "shared/comment_form", :comment => @comment, :post => post %>
   </div>
-  <div class="fs-6 mt-1">
+  <div class="all-comments-link mt-1">
     <%= link_to "See All Comments", post_path(post), class: "link-underline link-underline-opacity-0 link-underline-opacity-75-hover" %>
   </div>
 </div>
