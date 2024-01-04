@@ -39,10 +39,3 @@ class UsersController < ApplicationController
     return potential_friends
   end
 end
-
-connections = User.first.friends + User.first.pending_friends
-connections << User.first
-User.first.friend_requests.each do |req|
-  connections << req.user
-end
-potential_friends = User.all - connections
