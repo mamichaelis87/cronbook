@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-6">
+    <div class="col-xs-12 col-md-6">
       <div class="card text-bg-primary bg-opacity-50 p-2 mb-2 shadow">
-        <h2>Your Friends!</h2>
+        <h2>Your Friends</h2>
         <ul class="list-group">
         <%# show all friendships, friend or pending %>
           <% @friends.each do |friend| %>
@@ -12,39 +12,45 @@
           <% end %>
         </ul>
       </div>
+    </div>
 
-      <% unless @friend_requests.empty? %>
-      <div class="card text-bg-primary bg-opacity-50 p-2 mb-2 shadow">
-      <h2>Your Friend Requests!</h2>
-        <ul class="list-group">
-        <%# show all friendships, friend or pending %>
-          <% @friend_requests.each do |friend_request| %>
-          <li class="list-group-item d-flex align-items-center">
-            <%= render "shared/user", :user => friend_request.user, class: "align-middle" %>
-            <div class="d-flex ms-auto">
-              <%= button_to "Accept", friend_request_path(friend_request.id), method: "put", class: "btn btn-primary me-2" %>
-              <%= button_to "Reject", friend_request_path(friend_request.id), method: "delete", class: "btn btn-secondary"  %>
-            </div>
-          </li>
-          <% end %>
-        </ul>
+    <% unless @friend_requests.empty? %>
+      <div class="col-xs-12 col-md-6">
+        <div class="card text-bg-primary bg-opacity-50 p-2 mb-2 shadow">
+        <h2>Your Friend Requests</h2>
+          <ul class="list-group">
+          <%# show all friendships, friend or pending %>
+            <% @friend_requests.each do |friend_request| %>
+            <li class="list-group-item d-flex align-items-center">
+              <%= render "shared/user", :user => friend_request.user, class: "align-middle" %>
+              <div class="d-flex ms-auto">
+                <%= button_to "Accept", friend_request_path(friend_request.id), method: "put", class: "btn btn-primary me-2" %>
+                <%= button_to "Reject", friend_request_path(friend_request.id), method: "delete", class: "btn btn-secondary"  %>
+              </div>
+            </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
-      <% end %>
+    <% end %>
 
-      <% unless @pending_friends.empty? %>
-      <div class="card text-bg-primary bg-opacity-50 p-2 mb-2 shadow">
-        <h2>Your Pending Friends!</h2>
-        <ul class="list-group">
-        <%# show all friendships, friend or pending %>
-          <% @pending_friends.each do |friend| %>
-          <li class="list-group-item">
-            <%= render "shared/user", :user => friend %>
-          </li>
-          <% end %>
-        </ul>
+    <% unless @pending_friends.empty? %>
+      <div class="col-xs-12 col-md-6">
+        <div class="card text-bg-primary bg-opacity-50 p-2 mb-2 shadow">
+          <h2>Your Pending Friends</h2>
+          <ul class="list-group">
+          <%# show all friendships, friend or pending %>
+            <% @pending_friends.each do |friend| %>
+            <li class="list-group-item">
+              <%= render "shared/user", :user => friend %>
+            </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
-      <% end %>
-
+    <% end %>
+          
+    <div class="col-xs-12 col-md-6">
       <div class="card text-bg-primary bg-opacity-50 p-2 mb-2 shadow">
         <h2>Find new friends</h2>
         <ul class="list-group">
