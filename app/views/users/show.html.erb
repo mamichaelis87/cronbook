@@ -44,7 +44,7 @@
       <%# show all previous posts
         !need to limit this to 'recent' posts %>
       <div>
-        <% @user.posts.each do |post| %>
+        <% @user.posts.reverse.each do |post| %>
         <div class="card text-bg-primary bg-opacity-50 p-2 mb-2 shadow">
           <%= render "shared/post", :post => post %>
         </div>
