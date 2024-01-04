@@ -33,6 +33,10 @@
             <%= form.label :other_info %>
             <%= form.text_area :other_info, class: "form-control text-bg-primary"  %>
           </li>
+          <li class="list-group-item">
+            <%= form.label :profile_picture %>
+            <%= form.file_field :profile_picture %>
+          </li>
           </ul>
           <%= form.submit "Update Profile", class: "btn btn-primary mt-2" %>
         <% end %>
