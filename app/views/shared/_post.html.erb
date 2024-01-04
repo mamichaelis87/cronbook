@@ -1,4 +1,4 @@
-<h3><%= link_to post.author.username, user_path(post.author) %></h3>
+<h3><%= link_to post.author.username, user_path(post.author), class: "link-underline link-underline-opacity-0 link-underline-opacity-75-hover" %></h3>
 <p><%= post.body %></p>
 <div>
   <% if post.liked?(current_user) %>
@@ -18,6 +18,6 @@
     <%= render "shared/comment_form", :comment => @comment, :post => post %>
   </div>
   <div>
-  <%= link_to "See All Comments", post_path(post) %>
+  <%= link_to "See All Comments", post_path(post), class: "link-underline link-underline-opacity-0 link-underline-opacity-75-hover" %>
 </div>
 </div>
