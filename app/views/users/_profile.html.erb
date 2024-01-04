@@ -1,6 +1,6 @@
-<div>
+<div class="p-3 d-flex justify-content-center">
   <% if profile.profile_picture.attached? %>
-    <% image_tag profile.profile_picture.variant(resize_to_limit: [200, nil]) %>
+    <%= image_tag profile.profile_picture.variant(resize_to_limit: [200, nil]), class: "img-thumbnail" %>
   <% end %>
 </div>
 <ul class="list-group mb-2">
