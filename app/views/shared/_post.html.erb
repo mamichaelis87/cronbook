@@ -1,14 +1,14 @@
 <p class="mb-0"><%= link_to post.author.username, user_path(post.author), class: "link-underline link-underline-opacity-0 link-underline-opacity-75-hover" %></p>
-<p><%= post.body %></p>
-<div class="d-flex mb-2">
+<p class="mb-1"><%= post.body %></p>
+<div class="d-flex mb-2 snap-count">
   <% if post.liked?(current_user) %>
-    <div class="ms-2 d-flex">
+    <div class="d-flex">
       <%= image_tag("snap.png", size: "20x20", class: "me-1") %>
-      <p class="ms-2 mb-0"><%= post.likes.count %> snaps</p>
+      <p class="ms-1 mb-0"><%= post.likes.count %> snaps</p>
     </div>
   <% else %>
     <%= button_to image_tag("snap.png", size: "20x20"), like_path(post), method: "put", class: "btn bg-transparent" %>
-    <p class="ms-2">Give Respect</p>
+    <p class="ms-1">Give Respect</p>
   <% end %>
 </div>
 <div class="ps-3">
@@ -20,7 +20,7 @@
   <div>
     <%= render "shared/comment_form", :comment => @comment, :post => post %>
   </div>
-  <div>
-  <%= link_to "See All Comments", post_path(post), class: "link-underline link-underline-opacity-0 link-underline-opacity-75-hover" %>
-</div>
+  <div class="fs-6 mt-1">
+    <%= link_to "See All Comments", post_path(post), class: "link-underline link-underline-opacity-0 link-underline-opacity-75-hover" %>
+  </div>
 </div>
