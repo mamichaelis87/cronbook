@@ -1,3 +1,8 @@
+<div>
+  <% if profile.profile_picture.attached? %>
+    <% image_tag profile.profile_picture.variant(resize_to_limit: [200, nil]) %>
+  <% end %>
+</div>
 <ul class="list-group mb-2">
   <li class="list-group-item">Name: <%=profile.first_name%> <%=profile.last_name%></li>
   <li class="list-group-item">Birthday: <%=profile.birthday%></li>
