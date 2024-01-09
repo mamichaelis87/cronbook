@@ -19,14 +19,19 @@
     </div>
     <div class="col-md-4 d-none d-md-block">
       <div class="card text-bg-primary bg-opacity-50 p-2 mb-2 shadow">
-        <h2>Your friends</h2>
-        <ul class="list-group">
-          <% current_user.friends.each do |friend| %>
-          <li class="list-group-item">
-            <%= render "shared/user", :user => friend %>
-          </li>
-          <% end %>
-        </ul>
+        <% if current_user.friends.empty? %>
+          <h2>You're all alone :(</h2>
+          <%= link_to "Find Friends", users_path, class: "btn btn-primary col-8" %>
+        <% else %>
+          <h2>Your friends</h2>
+          <ul class="list-group">
+            <% current_user.friends.each do |friend| %>
+            <li class="list-group-item">
+              <%= render "shared/user", :user => friend %>
+            </li>
+            <% end %>
+          </ul>
+        <% end %>
       </div>
     </div>
   </div>

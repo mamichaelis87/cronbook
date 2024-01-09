@@ -1,18 +1,20 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-xs-12 col-md-6">
-      <div class="card text-bg-primary bg-opacity-50 p-2 mb-2 shadow">
-        <h2>Your Friends</h2>
-        <ul class="list-group">
-        <%# show all friendships, friend or pending %>
-          <% @friends.each do |friend| %>
-          <li class="list-group-item">
-            <%= render "shared/user", :user => friend %>
-          </li>
-          <% end %>
-        </ul>
+    <% unless current_user.friends.empty? %>
+      <div class="col-xs-12 col-md-6">
+        <div class="card text-bg-primary bg-opacity-50 p-2 mb-2 shadow">
+          <h2>Your Friends</h2>
+          <ul class="list-group">
+          <%# show all friendships, friend or pending %>
+            <% @friends.each do |friend| %>
+            <li class="list-group-item">
+              <%= render "shared/user", :user => friend %>
+            </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
-    </div>
+    <% end %>
 
     <% unless @friend_requests.empty? %>
       <div class="col-xs-12 col-md-6">
