@@ -6,9 +6,12 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :users
   resources :profiles
-  resources :posts
+  resources :posts do 
+    member do
+      post "like", to: "posts#like"
+    end
+  end
   resources :comments
   resources :friendships
   resources :friend_requests
-  put '/post/:id/like', to: 'posts#like', as: 'like'
 end
