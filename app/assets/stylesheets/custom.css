@@ -2,6 +2,10 @@
   font-size: small;
 }
 
+.snap-button:hover {
+  transform: scale(1.2);
+}
+
 .all-comments-link {
   font-size: 14px;
 }
