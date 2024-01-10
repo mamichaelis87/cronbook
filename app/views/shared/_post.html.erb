@@ -4,7 +4,11 @@
   <% if post.liked?(current_user) %>
     <div class="d-flex">
       <%= image_tag("snap.png", size: "20x20", class: "me-1") %>
-      <p class="ms-1 mb-0"><%= post.likes.count %> snaps</p>
+      <% if post.likes.count <= 1 %>
+        <p class="ms-1 mb-0"><%=post.likes.count%> snap</p>
+      <% else %>
+        <p class="ms-1 mb-0"><%=post.likes.count%> snaps</p>
+      <% end %>
     </div>
   <% else %>
     <div class="d-flex">
