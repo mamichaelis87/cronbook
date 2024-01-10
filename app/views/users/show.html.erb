@@ -45,10 +45,8 @@
         !need to limit this to 'recent' posts %>
       <div>
         <% @user.posts.reverse.each do |post| %>
-        <div class="card text-bg-primary bg-opacity-50 p-3 mb-2 shadow">
-          <%= turbo_frame_tag dom_id(post) do %>
-            <%= render "shared/post", :post => post %>
-          <% end %>
+        <div class="card text-bg-primary bg-opacity-50 p-3 mb-2 shadow"> 
+          <%= render "shared/post", :post => post %>
         </div>
         <% end %>
       </div>
