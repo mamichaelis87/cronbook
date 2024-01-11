@@ -76,13 +76,17 @@
       <% end %>
       <%# show all previous posts
         !need to limit this to 'recent' posts %>
-      <div>
+      <% if current_user.friends.include?(@user) || current_user == @user %>
         <% @user.posts.reverse.each do |post| %>
-        <div class="card text-bg-primary bg-opacity-50 p-3 mb-2 shadow"> 
-          <%= render "shared/post", :post => post %>
-        </div>
+          <div class="card text-bg-primary bg-opacity-50 p-3 mb-2 shadow"> 
+            <%= render "shared/post", :post => post %>
+          </div>
         <% end %>
-      </div>
+      <% else %>
+        <div class="card text-bg-primary bg-opacity-50 p-2 mb-2 shadow">
+          <h2>Become friends to see timeline</h2>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
