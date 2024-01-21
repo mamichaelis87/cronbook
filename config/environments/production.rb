@@ -64,13 +64,13 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = { :host => 'cronbook-289dcf3d73cf.herokuapp.com/', :protocol => 'https' }
+  config.action_mailer.default_url_options = { :host => 'cronbook-289dcf3d73cf.herokuapp.com', :protocol => 'https' }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:         'smtp.gmail.com',
     port:            587,
-    domain:          'cronbook-289dcf3d73cf.herokuapp.com/',
+    domain:          'cronbook-289dcf3d73cf.herokuapp.com',
     user_name:       'mallenm1993@gmail.com',
     password:        ENV['GMAIL_PASSWORD'],
     authentication:  'plain',
