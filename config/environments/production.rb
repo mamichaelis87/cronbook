@@ -66,9 +66,21 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { :host => 'https://cronbook-289dcf3d73cf.herokuapp.com/' }
 
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:         'smtp.gmail.com',
+    port:            587,
+    domain:          'https://cronbook-289dcf3d73cf.herokuapp.com/',
+    user_name:       'mallenm1993@gmail.com',
+    password:        ENV['GMAIL_PASSWORD'],
+    authentication:  'plain',
+    enable_starttls: true,
+    open_timeout:    5,
+    read_timeout:    5 }
+
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
